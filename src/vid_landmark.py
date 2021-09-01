@@ -4,11 +4,15 @@ import mediapipe as mp
 mesh = mp.solutions.face_mesh
 face_mesh = mesh.FaceMesh()
 
-vid = cv2.VideoCapture("../assets/obama.mp4")
+vid = cv2.VideoCapture(0)
 
 while True:
     ret,img = vid.read()
+    if not ret:
+        print("ohhh shit")
+        break
     h,w,_ = img.shape
+    #cv2.imshow("Image",img)
     rgb_image = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
     processed_img = face_mesh.process(rgb_image)
 
