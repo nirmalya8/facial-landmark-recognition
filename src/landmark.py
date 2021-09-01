@@ -7,7 +7,7 @@ face_mesh = mesh.FaceMesh()
 img = cv2.imread("../assets/villa.jpg")
 h,w,_ = img.shape
 rgb_image = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-processed_img = face_mesh.process(img)
+processed_img = face_mesh.process(rgb_image)
 
 for landmarks in processed_img.multi_face_landmarks:
     for i in range(468):
